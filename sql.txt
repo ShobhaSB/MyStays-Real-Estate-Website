@@ -1,0 +1,21 @@
+CREATE TABLE users (
+    name VARCHAR(50) COLLATE latin1_swedish_ci NOT NULL,
+    number VARCHAR(10) COLLATE latin1_swedish_ci NOT NULL,
+    email VARCHAR(50) COLLATE latin1_swedish_ci NOT NULL,
+    password VARCHAR(50) COLLATE latin1_swedish_ci NOT NULL,
+    id VARCHAR(20) COLLATE latin1_swedish_ci NOT NULL
+);
+CREATE TABLE properties (
+    id INT  PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(255) COLLATE latin1_swedish_ci NOT NULL,
+    description TEXT COLLATE latin1_swedish_ci NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    location VARCHAR(255) COLLATE latin1_swedish_ci NOT NULL,
+    type ENUM('Sale', 'Rent') COLLATE latin1_swedish_ci NOT NULL,
+    image1 VARCHAR(255) COLLATE latin1_swedish_ci NOT NULL,
+    image2 VARCHAR(255) COLLATE latin1_swedish_ci NOT NULL,
+    image3 VARCHAR(255) COLLATE latin1_swedish_ci NOT NULL,
+    image4 VARCHAR(255) COLLATE latin1_swedish_ci NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
